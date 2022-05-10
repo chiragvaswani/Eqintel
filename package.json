@@ -1,0 +1,19 @@
+{
+  "name": "eqintel",
+  "version": "1.0.0",
+  "description": "Eqintel is a compilation of services created by us that analyse a stock fundamentally and also check the extent of diversification.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiragvaswani/Eqintel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiragvaswani/Eqintel/issues"
+  },
+  "homepage": "https://github.com/chiragvaswani/Eqintel#readme"
+}
