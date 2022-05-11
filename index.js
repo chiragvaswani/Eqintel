@@ -24,3 +24,47 @@ function getCorrelation(StockA, StockB) {
   deviationBSum = Math.sqrt(deviationBSquaredSum);
   correlation = productSum / (deviationASum * deviationBSum);
 }
+
+// server
+const bodyParser = require("body-parser");
+const express = require("express");
+const axios = require("axios");
+
+const app = express();
+
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/tickers", (req, res) => {
+  tickerStockA = req.body.stockA;
+  tickerStockB = req.body.stockB;
+});
+
+app.listen(3000, () => console.log("Server running at 3000"));
+
+const options = {
+  method: "GET",
+  url: "https://yh-finance.p.rapidapi.com/stock/v3/get-historical-data",
+  params: { symbol: "AMRN", region: "US" },
+  headers: {
+    "X-RapidAPI-Host": "yh-finance.p.rapidapi.com",
+    "X-RapidAPI-Key": "13a4e865e8msh8a137de04f92ba0p146243jsn663bf25b78fa",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
