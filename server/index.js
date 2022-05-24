@@ -53,7 +53,8 @@ app.post("/tickers", async (req, res) => {
   stockAData = await getStockData(tickerStockA, region);
   stockBData = await getStockData(tickerStockB, region);
   console.log("Stock A Data: " + stockAData.length);
-  console.log("Stock B Data: " + stockBData.length);
+  console.log(stockAData[0]);
+  // console.log("Stock B Data: " + stockBData.length);
 });
 
 app.listen(3000, () => console.log("Server running at 3000"));
